@@ -1,11 +1,32 @@
-const name = 'JINWOO';
-const age = [29, 32];
-const gender = 'male';
+// interface Human {
+//   name: string;
+//   age: number;
+//   gender: string;
+// }
 
-const sayHi = (name: String, age: Number[], gender: String): string => {
-  return `Hello ${name}, you are ${age}, you are a ${gender} ha`;
+class Human {
+  public name: string;
+  public age: number;
+  public gender: string;
+  constructor(name: string, age: number, gender: string) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+  }
+}
+
+const jinwoo = new Human('Jinwoo', 29, 'male');
+
+// const person = {
+//   name: 'jinwoo',
+//   gender: 'male',
+//   age: 29
+// };
+
+export const sayHi = (person: Human): string => {
+  return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender} ha`;
 };
 
-console.log(sayHi(name, age, gender));
+console.log(sayHi(jinwoo));
 
 export {};

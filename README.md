@@ -68,3 +68,150 @@
 >
 > - 타입스크립트 파일에 수정사항이 감지되면, 자동으로 컴파일히여 컴파일된 스크립트 파일을 실행시켜주는 개발용 라이브러리
 > - `$yarn add tsc-watch --dev`
+>
+> ### crypto-js
+>
+> - javascript를 이용한 서비스에서, 여러가지 정보들을 안전하게 암호화하는 기능을 제공해주는 라이브러리
+> - `$uarn add crypto-js` or `$npm i -d crypto-js`
+> - `npm i --save-dev @types/crypto-js` (TypeScript 사용 시, 필수 설치사항)
+
+---
+
+> ## Study
+>
+> ### Interface
+>
+> - 특정한 객체에 대한 형식(틀)을 선언하는 것
+> - js로 컴파일되지 않음. 따라서, 컴파일한 js에 포함시키려면 인터페이스 대신 클래스를 사용해야함.
+> - js에서 인터페이스를 사용하면 TypeScript 측면에서 좀 더 안전함.
+>
+> ```tsx
+> interface person {
+>   name: string;
+>   age: number;
+>   gender: string;
+>   hobbies: string[];
+> }
+>
+> const jinwoo = {
+>   name: 'jinwoo',
+>   age: 29,
+>   gender: 'male',
+>   hobbies: ['programming', 'soccer', 'singing']
+> };
+>
+> const showInfo = (data: person) => {
+>   return `Hi, ${name}. You are ${age} years old and ${male}. Also your hobbies are
+> 		${hobbies} !`;
+> };
+>
+> console.log(showInfo(jinwoo));
+> /*  
+> 	`Hi, jinwoo. You are 29 years old and ${male}. 
+>  Also your hobbies are	'programming', 'soccer', 'singing' !`
+> */
+> ```
+
+> ### Class
+>
+> - TypeScript에서는 클래스 속성의 타입들을 선언해줘야함.
+> - react, express, node 환경에서는 클래스를 주로 사용
+> - public : 단어 뜻 그대로 전역적으로 접근 가능함
+> - private: 해당 블록의 스코프 내부에서만 접근 가능함.
+> - constructor: 클래스 생성 시, 호출되는 생성자.
+>
+> ```tsx
+> class Person {
+>   public name: string;
+>   public age: number;
+>   public gender: string;
+>   public hobbies: string[];
+>   constructor(name: string, age: number, gender: string, hobbies: string[]) {
+>     this.name = name; // Person 클래스의 name 은 생성자 constructor의 name과 같다.
+>     this.age = age;
+>     this.gender = gender;
+>     this.hobbies = hobbies;
+>   }
+> }
+>
+> const jinwoo = new Human('Jinwoo', 29, 'male', [
+>   'programming',
+>   'soccer',
+>   'singing'
+> ]);
+>
+> const showInfo = (data: person) => {
+>   return `Hi, ${name}. You are ${age} years old and ${male}. Also your hobbies are
+> 		${hobbies} !`;
+> };
+>
+> console.log(showInfo(jinwoo));
+> ```
+
+---
+
+> ## Project
+>
+> ### 블록체인 클래스 및 필요 함수 생성
+
+> ```tsx
+> import * as CryptoJS from 'crypto-js';
+>
+> class Block {
+>   public index: number;
+>   public hash: string;
+>   public previousHash: string;
+>   public data: string;
+>   public timestamp: number;
+>
+>   /**
+>    * 블록 해쉬 계산 static function
+>    * @param index
+>    * @param previousHash
+>    * @param timestamp
+>    * @param data
+>    * @returns
+>    */
+>   static calculateBlockHash = (
+>     index: number,
+>     previousHash: string,
+>     timestamp: number,
+>     data: string
+>   ): string =>
+>     CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
+>
+>   constructor(
+>     index: number,
+>     hash: string,
+>     previousHash: string,
+>     data: string,
+>     timestamp: number
+>   ) {
+>     this.index = index;
+>     this.hash = hash;
+>     this.previousHash = previousHash;
+>     this.data = data;
+>     this.timestamp = timestamp;
+>   }
+> }
+>
+> const genesisBlock: Block = new Block(
+>   0,
+>   '3420ij30i2fj02',
+>   '',
+>   'Hello',
+>   123456
+> );
+>
+> let blockchain: Block[] = [genesisBlock]; // blockchain : Block 클래스 인스턴스 타입에 대한 array
+>
+> console.log(blockchain);
+>
+> const getBlockchain = (): Block[] => blockchain; // 블록체인 배열 return function
+>
+> const getLatestBlock = (): Block => blockchain[blockchain.length - 1]; // 블록체인 중 가장 마지막(최근) blockchain return function
+>
+> const getNewTimeStamp = (): number => Math.round(new Date().getTime() / 1000); // 현재 시간을 가지고 새로운 타임스탬프 값 return function
+>
+> export {};
+> ```

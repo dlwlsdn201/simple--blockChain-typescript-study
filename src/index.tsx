@@ -48,13 +48,11 @@ class Block {
 
 const genesisBlock: Block = new Block(0, '3420ij30i2fj02', '', 'Hello', 123456);
 let blockchain: Block[] = [genesisBlock]; // blockchain : Block 클래스 인스턴스 타입에 대한 array
-
-console.log(blockchain);
-
 const getLatestBlock = (): Block => blockchain[blockchain.length - 1]; // 블록체인 중 가장 마지막(최근) blockchain return function
 
 const getNewTimeStamp = (): number => Math.round(new Date().getTime() / 1000); // 현재 시간을 가지고 새로운 타임스탬프 값 return function
 
+// 신규 블록 생성 함수
 const createNewBlock = (data: string): Block => {
   const previousBlock: Block = getLatestBlock();
   const newIndex: number = previousBlock.index + 1;

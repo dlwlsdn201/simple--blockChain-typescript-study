@@ -1,4 +1,7 @@
 # TypeScript 기반의 블록체인 웹 애플리케이션
+> ## Preview
+> ![simple-blockChain__by-TS](https://user-images.githubusercontent.com/53039583/155722065-89e112ae-af0d-44f2-b53e-5a1b902ce27f.gif)
+>
 
 > ## Install
 >

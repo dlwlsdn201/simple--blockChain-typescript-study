@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@types/crypto-js@^4.1.1":
+  "integrity" "sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA=="
+  "resolved" "https://registry.npmjs.org/@types/crypto-js/-/crypto-js-4.1.1.tgz"
+  "version" "4.1.1"
+
 "ansi-regex@^5.0.1":
   "integrity" "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="
   "resolved" "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz"

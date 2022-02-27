@@ -1,7 +1,7 @@
 # TypeScript 기반의 블록체인 웹 애플리케이션
 > ## Preview
-> ![simple-blockChain__by-TS](https://user-images.githubusercontent.com/53039583/155722065-89e112ae-af0d-44f2-b53e-5a1b902ce27f.gif)
 >
+> ![simple-blockChain__by-TS](https://user-images.githubusercontent.com/53039583/155722065-89e112ae-af0d-44f2-b53e-5a1b902ce27f.gif)
 
 > ## Install
 >
@@ -84,6 +84,21 @@
 
 > ## Study
 >
+> > ### Why use TypeScript ?
+> >
+> > - 에러 사전 방지
+> > - 코드 가이드 및 자동 완성
+> >   > 아래 코드에서 자바스크립트는 total이라는 변수의 타입이 코드를 작성하는 시점에 number 라는 것을 인지하지 못함. 하지만, 타입스크립트는 total 에 지정된 타입을 미리 읽고 vsCode에서 해당 타입에 대한 API를 자동완성으로 제공해주어 더욱 빠르고 정확하게 작성할 수 있음.
+> >   >
+> >   > ```tsx
+> >   > // math.js
+> >   > function sum(a, b) {
+> >   >   return a + b;
+> >   > }
+> >   > var total = sum(10, 20);
+> >   > total.toLocaleString();
+> >   > ```
+> >
 > > ### Interface
 > >
 > > - 특정한 객체에 대한 형식(틀)을 선언하는 것
